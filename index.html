@@ -30,9 +30,11 @@
                 if (chrome.runtime.lastError) {
                     console.log('error');
                 }
-                if (!response.success) {
-                    console.log('success');
+                if (!response) {
+                    console.log('No extension');
+                    return;
                 }
+                console.log('Extension version: ', response.version);
             });
         } catch (e) {
             console.log('error');
