@@ -18,12 +18,13 @@
 
 <body>
 
-    <main role="main" class="container">
-
-        <div class="starter-template">
-            <h1>Landing Page for Chrome Horizon app</h1>
-        </div>
-    </main>
+    <div class="jumbotron">
+        <h1 class="display-4">VMware Horizon Client for Chrome</h1>
+        <p class="lead">VMware Horizon Client for Chrome is not installed on your chromebook</p>
+        <hr class="my-4">
+        <p>Click the install buttin to install the app</p>
+        <a class="btn btn-primary btn-lg" href="https://chrome.google.com/webstore/detail/vmware-horizon-client-for/ppkfnjlimknmjoaemnpidmdlfchhehel?hl=en" role="button">Install</a>
+    </div>
     <script>
         try {
             chrome.runtime.sendMessage('nhkgcdlgmbomcakllemocdcclaojedac', 'hello', function(response) {
@@ -33,6 +34,9 @@
                 if (!response) {
                     console.log('No extension');
                     return;
+                }
+                if (response === 'installed') {
+                    window.close();
                 }
                 console.log('Extension version: ', response.version);
             });
