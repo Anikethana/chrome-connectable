@@ -36,7 +36,7 @@
                     return;
                 }
                 if (response === 'installed') {
-                    window.close();
+                    window.opem(window.href + '/launch');
                 }
                 console.log('Extension version: ', response.version);
             });
