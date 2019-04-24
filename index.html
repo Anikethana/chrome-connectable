@@ -36,7 +36,10 @@
                     return;
                 }
                 if (response === 'installed') {
-                    window.opem(window.href + '/launch');
+                    var v = window.opem(window.href + '/launch');
+                    setTimeout(function() {
+                        v.close();
+                    }, 500);
                 }
                 console.log('Extension version: ', response.version);
             });
