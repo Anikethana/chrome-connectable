@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -24,12 +25,20 @@
         </div>
     </main>
     <script>
-        chrome.runtime.sendMessage('nhkgcdlgmbomcakllemocdcclaojedac', {
-            openUrlInEditor: url
-        }, function(response) {
-            if (!response.success) {
-                handleError(url);
-            }
-        });
+        try {
+            chrome.runtime.sendMessage('nhkgcdlgmbomcakllemocdcclaojedac', 'hello', function() {
+                if (chrome.runtime.lastError) {
+                    console.log('error');
+                }
+                if (!response.success) {
+                    console.log('success');
+                }
+            });
+        } catch (e) {
+            console.log('error');
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
