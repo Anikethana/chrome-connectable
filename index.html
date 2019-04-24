@@ -28,24 +28,24 @@
     <script>
         try {
             chrome.runtime.sendMessage('nhkgcdlgmbomcakllemocdcclaojedac', 'hello', function(response) {
-                    if (chrome.runtime.lastError) {
-                        console.log('error');
-                    }
-                    if (!response) {
-                        console.log('No extension');
-                        return;
-                    }
-                    if (response === 'installed') {
-                        location.href = location.href + 'launch';
-                        setTimeout(function() {
-                            window.close();
-                        }, 500);
-                        console.log('Extension version: ', response.version);
-                    });
-            }
-            catch (e) {
-                console.log('error');
-            }
+                if (chrome.runtime.lastError) {
+                    console.log('error');
+                }
+                if (!response) {
+                    console.log('No extension');
+                    return;
+                }
+                if (response === 'installed') {
+                    location.href = location.href + 'launch';
+                    setTimeout(function() {
+                        window.close();
+                    }, 500);
+                    console.log('Extension version: ', response.version);
+                }
+            });
+        } catch (e) {
+            console.log('error');
+        }
 
     </script>
 </body>
