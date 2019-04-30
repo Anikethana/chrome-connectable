@@ -36,10 +36,10 @@
                     return;
                 }
                 if (response === 'installed') {
-                    location.href = location.href + 'launch';
+                    location.href = location.origin + location.pathname + 'launch' + location.search;
                     setTimeout(function() {
                         window.close();
-                    }, 500);
+                    }, 100);
                     console.log('Extension version: ', response.version);
                 }
             });
